@@ -41,7 +41,7 @@ class WXR_Converter { //extends WP_CLI_Command {
 		preg_match( '!<link>(.*)</link>!', $lines, $matches );
 		$url = $matches[1];
 
-		$lines = preg_replace( '!xmlns:wp="http://wordpress.org/export/\d+\.\d+/!', 'xmlns:wp="http://wordpress.org/export/1.2/' . "\n\t" . 'xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"', $lines );
+		$lines = preg_replace( '!xmlns:wp="http://wordpress.org/export/\d+\.\d+/"!', 'xmlns:wp="http://wordpress.org/export/1.2/"' . "\n\t" . 'xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"', $lines );
 
 		$lines = str_replace( '<channel>', "<channel>\n<wp:wxr_version>1.2</wp:wxr_version>\n", $lines );
 		$lines = str_replace( '<channel>', "<channel>\n<wp:base_site_url>$url</wp:base_site_url>\n", $lines );
